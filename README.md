@@ -51,6 +51,8 @@ With the plugin system, you can ask GPT-4 to generate two random numbers and add
 
 [See a GPT-4 plugin demo on YouTube](https://www.youtube.com/watch?v=o7M-XH6tMhc)
 
+ℹ️ Plugins are only supported on unix based systems like Linux and MacOS - to get plugins working on Windows, you'll need to use something like WSL2.
+
 ## Contributing
 
 PRs to add new features are welcome.
@@ -61,7 +63,19 @@ Be careful of prompt changes - small changes can disrupt GPT-4's ability to use 
 
 You should supervise GPT-4's activity.
 
-In one experiment, GPT-4 gave itself internet access with a HTTP client plugin - this seemed like a bad idea. 
+In one experiment, GPT-4 gave itself internet access with a HTTP client plugin - this seemed like a bad idea.
+
+### Supervised mode
+
+GPTChat will run in supervised mode by default.
+
+This doesn't restrict any functionality, but does require user confirmation before compiling and executing any plugin code written by GPT, giving users a chance to review the code for safety before executing it.
+
+⚠️ Code written by GPT is untrusted code from the internet and potentially dangerous
+
+All code is compiled and executed as your user, with the same level of permissions your user has.  It may be safer to run this in a container or virtual machine.
+
+Supervised mode can be disabled but I wouldn't recommend it.
 
 # License
 
